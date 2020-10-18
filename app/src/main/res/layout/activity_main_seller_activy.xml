@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainSellerActivy">
+
+    <RelativeLayout
+    android:id="@+id/rlPanel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_rect01"
+    android:padding="10dp">
+
+    <ImageButton
+        android:id="@+id/btnSignOut"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:background="@null"
+        android:src="@drawable/ic_signout_white" />
+
+    <ImageButton
+        android:id="@+id/btnEdtProfile"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_toStartOf="@+id/btnSignOut"
+        android:background="@null"
+        android:src="@drawable/ic_edit_white" />
+
+    <ImageButton
+        android:id="@+id/btnAddProduct"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_toStartOf="@+id/btnEdtProfile"
+        android:background="@null"
+        android:src="@drawable/ic_shopping_white" />
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/tvProfile"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/rlEdtProfile"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/ic_store_gray"
+        app:civ_border_color="@color/colorWhite"
+        app:civ_border_width="2dp" />
+
+    <TextView
+        android:id="@+id/tvNameSeller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/tvProfile"
+        android:text="Name"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvShopNameSeller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvNameSeller"
+        android:layout_toEndOf="@+id/tvProfile"
+        android:text="Shop Name"
+        android:textColor="@color/colorWhite" />
+
+    <TextView
+        android:id="@+id/tvEmailSeller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvShopNameSeller"
+        android:layout_toEndOf="@+id/tvProfile"
+        android:text="Email"
+        android:textColor="@color/colorWhite" />
+
+
+    <!--Tab Product, orders-->
+
+    <LinearLayout
+        android:layout_below="@+id/tvProfile"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="@drawable/shape_rect03"
+        android:layout_marginTop="5dp">
+
+        <!--Product-->
+
+        <TextView
+            android:id="@+id/tvTabProducts"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Products"
+            android:background="@drawable/shape_rect04"
+            android:textColor="@color/colorBlack"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tvTabOrders"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Orders"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlProducts"
+        android:layout_below="@+id/rlPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <EditText
+            android:id="@+id/edtSearchProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape_rect02"
+            android:drawableStart="@drawable/ic_search_gray"
+            android:drawablePadding="5dp"
+            android:padding="10dp"
+            android:layout_toStartOf="@+id/btnFilterProduct"
+            android:hint="Search..." />
+
+        <ImageButton
+            android:id="@+id/btnFilterProduct"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/ic_filter_gray"
+            android:scaleType="fitXY"
+            android:background="@null" />
+
+        <TextView
+            android:id="@+id/tvShowAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnFilterProduct"
+            android:text="Showing all"
+            android:textColor="@color/colorGreen"
+            android:layout_margin="5dp"
+            android:textStyle="bold"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProductSeller"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tvShowAll"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/row_product_seller" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlOrders"
+        android:layout_below="@+id/rlPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</RelativeLayout>
